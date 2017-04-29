@@ -1,7 +1,8 @@
 package logic;
 
+import tree.Tree;
 
-public class Production implements Runnable {
+public class Production extends Thread{
 	
 	private static int _Chayotes = 0;
 	private static int _Objective;
@@ -17,7 +18,7 @@ public class Production implements Runnable {
 	//Functionss
 	@Override
 	public void run(){
-		if (_Chayotes < _Objective){
+		while (_Chayotes < _Objective){
 			_Tree = Tree.getInstance();
 			if (result()){
 				Chayote Chayo = new Chayote();
@@ -28,12 +29,14 @@ public class Production implements Runnable {
 				Branch NewProduction = new Branch();
 				Generic_Node<Branch> Node = new Generic_Node<Branch>(NewProduction);
 				_Tree.get_Nodes().add(Node);
-				run(); //vuelve a correr el hilo ya que puede seguir creciendo
 			}
-			
 		}
 	}
 	
+	/**
+	 * Se usa para saber si se debe crear un chayote o una rama
+	 * @return valor booleano
+	 */
 	public boolean result(){
 		boolean result = false;
 		
