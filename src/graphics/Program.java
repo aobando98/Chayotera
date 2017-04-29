@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.awt.Choice;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Label;
 
@@ -117,5 +118,7 @@ public class Program extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, Result_label, 0, SpringLayout.EAST, comboBox_Cant);
 		Result_label.setBackground(Color.LIGHT_GRAY);
 		contentPane.add(Result_label);
+		
+		ImageIcon rama = new ImageIcon("/Users/albertoobando/Documents/workspace/Chayotera/src/images");
 	}
 }

@@ -14,6 +14,14 @@ public class Generic_Node<T> extends Thread{
 	private ArrayList<Generic_Node> _Nodes = new ArrayList<Generic_Node>();
 	
 	
+	public int get_MAX() {
+		return _MAX;
+	}
+
+	public void set_MAX(int _MAX) {
+		this._MAX = _MAX;
+	}
+	
 	public T get_Data() {
 		return _Data;
 	}
@@ -34,19 +42,14 @@ public class Generic_Node<T> extends Thread{
 
 	public Generic_Node(T pData){
 		this._Data = pData;
-		run();
 	}
 	
 	public void Add_Node(Generic_Node<T> pNode){
-		if (_Data.getClass() == Branch.class){
-			
-			if (this._Nodes.size() < _MAX){
-				this._Nodes.add(pNode);
-			}else{
-				System.out.println("Arbol lleno.");
-			}
+		if (this._Nodes.size() < _MAX){
+			this._Nodes.add(pNode);
+			System.out.println("Se agrego el nodo correctamente");
 		}else{
-			System.out.println("No es permitido agregar mas nodos.");
+			System.out.println("Arbol lleno.");
 		}
 	}
 	
